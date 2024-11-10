@@ -11,6 +11,8 @@
 
 # Finalmente, muestra los resultados en la pantalla.
 
+# Para ingresar texto: input() -> str(): parsea a string.
+# para parsear a numeros: float(), int(), etc.
 montoCuenta = float(input("Ingrese el monto total de cuenta: "));
 porcentajePropina = int(input("Cuanto porcentaje de propina desea dejar?: "));
 
