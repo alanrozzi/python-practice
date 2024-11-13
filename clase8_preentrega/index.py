@@ -12,31 +12,42 @@ while True:
     print("\n1. Agregar productos al inventario.")
     print("2. Mostrar productos disponibles en el inventario.")
     print("3. Salir")
-    respuesta = int(input("\nEscriba del 1 al 3: "))
+    respuesta = input("\nEscriba del 1 al 3: ")
 
-    #OPCIONES
-    if respuesta == 1:
+    #Verfica si se ingresa letra o numero.
+    #49 = '1'
+    #57 = '9'
+    if (len(respuesta) == 1) and (ord(respuesta) > 48) and (ord(respuesta) < 58):
+        respuesta = int(respuesta)
 
-        #ALTA
-        nombre = input("\nIngrese el nombre del producto: ")
-        cantidad = int(input("Ingrese la cantidad del producto: "))
+        #OPCIONES
+        if respuesta == 1:
 
-        inventario.append([nombre, cantidad])
+            #ALTA
+            nombre = input("\nIngrese el nombre del producto: ")
+            cantidad = int(input("Ingrese la cantidad del producto: "))
 
-    elif respuesta == 2:
+            inventario.append([nombre, cantidad])
 
-        #MOSTRAR
-        if len(inventario) == 0:
-            print("No existen productos en el inventario.")
+        elif respuesta == 2:
+
+            #MOSTRAR
+            if len(inventario) == 0:
+                print("\nNo existen productos en el inventario.")
+            else:
+                print("\nProductos disponibles:")
+                #Recorre tanto filas como columnas al comportarse como matriz
+                for i in range(0, (len(inventario))):
+                    for j in range(0, (len(inventario)-1)):
+                        print(f"- Producto: {inventario[i][j]} | Cantidad: {inventario[i][j+1]}")
+        
+        elif respuesta == 3:
+            #SALIR
+            print("\nGracias por usar nuestro sistema :)")
+            break
         else:
-            print("Productos disponibles:")
-            for i in range(0, (len(inventario))):
-                print(inventario[i])
-    
-    elif respuesta == 3:
-        #SALIR
-        print("\nGracias por usar nuestro sistema :)")
-        break
+            #OPCIONES NO VALIDAS
+            print("\nEsa opcion esta fuera de nuestro rango :(")
+
     else:
-        #OPCIONES NO VALIDAS
-        print("\nEsa opcion esta fuera de nuestro rango :(")
+        print("\nSolo aceptamos numeros ;)")
