@@ -33,7 +33,11 @@ while i < len(productos):
 
         while cantVendida < 0:
             cantVendida = int(input("Ingrese la cantidad vendida valida: "))
-        productos[i][2] -= cantVendida
+        
+        if productos[i][2] > 0 and productos[i][2] > cantVendida:
+            productos[i][2] -= cantVendida
+        else:
+            productos[i][2] = 0
 
         break
     i+=1
