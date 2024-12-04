@@ -38,8 +38,9 @@ while True:
                 print("\nProductos disponibles:")
                 #Recorre tanto filas como columnas al comportarse como matriz
                 for i in range(0, (len(inventario))):
-                    for j in range(0, (len(inventario)-1)):
-                        print(f"- Producto: {inventario[i][j]} | Cantidad: {inventario[i][j+1]}")
+                    #for j in range(0, (len(inventario)-1)):
+                        #print(f"- Producto: {inventario[i][j]} | Cantidad: {inventario[i][j+1]}")
+                    print(f"- Producto: {inventario[i][0]} | Cantidad: {inventario[i][1]}")
         
         elif respuesta == 3:
             #SALIR
