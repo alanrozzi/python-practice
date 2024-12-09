@@ -8,7 +8,7 @@
 #from 'nombre_archivo.py' (fichero) import 'funcion1', 'funcion2'
 
 from validaciones import validarRespuesta, menu
-from funciones import hardcodeProductos, resgistrarProducto, mostrarProductos, actualizarProducto, eliminarProducto
+from funciones import hardcodeProductos, resgistrarProducto, mostrarProductos, actualizarProducto, eliminarProducto, buscarProducto, reportarBajoStock
 
 
 inventario = {}
@@ -52,6 +52,14 @@ while True:
         elif respuesta == 5:
             #ACTUALIZAR
             mostrarProductos(inventarioEliminado, " eliminados")
+
+        elif respuesta == 6:
+            #BUSCAR
+            buscarProducto(inventario)
+
+        elif respuesta == 7:
+            #BUSCAR
+            reportarBajoStock(inventario, 5)
 
         elif respuesta == 8:
             #SALIR

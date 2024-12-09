@@ -4,6 +4,8 @@ def menu():
     print("3. Actualizar producto")
     print("4. Eliminar producto")
     print("5. Ver productos eliminados")
+    print("6. Buscar producto")
+    print("7. Buscar productos de bajo stock")
     print("8. Salir")
     print("\n9. (Dev only) Hardcode.")
 
@@ -18,28 +20,33 @@ def validarRespuesta(respuesta, letraMin, letraMax):
 
     return validacion
 
-def validarCodigo(mensaje):
+def validarNumero(mensaje, tipo):
     codigoValido = 0
     while True:
         codigoValido = input(mensaje)
-        if codigoValido.isdigit() and int(codigoValido) > 0:
-            codigoValido = int(codigoValido)
-            break
-        else:
-            codigoValido = 0
+        if codigoValido.isdigit() and (int(codigoValido) > 0 or float(codigoValido) > 0):
+            
+            if tipo == "int":
+                codigoValido = int(codigoValido)
+                break
+            if tipo == "float":
+                codigoValido = float(codigoValido)
+                break
 
     return codigoValido
 
-def buscarProducto(inventario):
-    codigo = validarCodigo("Ingrese un codigo valido de producto: ")
+def codigoProducto(inventario):
 
-    if codigo > len(inventario):
-        print(f"\nEl producto {codigo} no existe en este inventario.")
-        codigo = -1
+    if len(inventario) == 0:
+        print("No existen productos del inventario.")
     else:
-        print(f"\nCodigo: {codigo}.")
+        codigo = validarNumero("Ingrese un codigo valido de producto: ", "int")
+        if codigo > len(inventario):
+            print(f"\nEl producto {codigo} no existe en este inventario.")
+            codigo = -1
+        else:
+            print(f"\nCodigo: {codigo}.")
 
-        
     return codigo
 
     
