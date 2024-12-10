@@ -43,6 +43,7 @@ def resgistrarProducto(inventario):
     inventario[key]["descripcion"] = input("Ingrese la descripcion del producto: ")
     #VALIDAR SOLO INT y FLOAT
     inventario[key]["cantidad"] = validarNumero("Ingrese la cantidad valida del producto: ", "int")
+    #SOLO ADMITE INTS
     inventario[key]["precio"] = validarNumero("Ingrese el precio valido del producto: ", "float")
 
     inventario[key]["categoria"] = input("Ingrese la categoria del producto: ")
@@ -50,6 +51,7 @@ def resgistrarProducto(inventario):
     #print(inventario[len(inventario)])
     return inventario
    
+#Muestra la lista completa del inventario
 def mostrarProductos(inventario, mensaje):
 
     if len(inventario) == 0:
@@ -64,7 +66,7 @@ def mostrarProductos(inventario, mensaje):
                 f"\n\tPrecio: {producto["precio"]}"
                 f"\n\tCategoria: {producto["categoria"]}")
             
-
+#Muestra solo un producto de la lista mediante su key
 def mostrarProducto(inventario, key):
 
     print(f"\nProducto: {key}"
@@ -74,15 +76,7 @@ def mostrarProducto(inventario, key):
         f"\n\tPrecio: {inventario[key]["precio"]}"
         f"\n\tCategoria: {inventario[key]["categoria"]}")
     
-
-# Esta función debería solicitar que se ingrese el código del
-# producto a actualizar, y verificar si existe en nuestro
-# diccionario. En caso afirmativo se piden el o los datos a
-# actualizar y se efectúa el reemplazo de los valores en el
-# diccionario. Si el producto cuyo código hemos ingresado no 
-# existe, se puede mostrar un mensaje explicando la
-# situación antes de salir de la función.
-
+#Actualiza un producto del inventario mediante su key
 def actualizarProducto(inventario):
 
     print(f"\nCantidad de productos disponibles: {len(inventario)}")
@@ -94,8 +88,9 @@ def actualizarProducto(inventario):
             #Completo campos del inventario
             inventario[key]["nombre"] = input("Ingrese el nuevo nombre del producto: ")
             inventario[key]["descripcion"] = input("Ingrese la nueva descripcion del producto: ")
-            inventario[key]["cantidad"] = int(input("Ingrese la nueva cantidad del producto: "))
-            inventario[key]["precio"] = float(input("Ingrese el nuevo precio del producto: "))
+            inventario[key]["cantidad"] = validarNumero("Ingrese la nueva cantidad valida del producto: ", "int")
+            inventario[key]["precio"] = validarNumero("Ingrese el nuevo precio valido del producto: ", "float")
+
             inventario[key]["categoria"] = input("Ingrese la nueva categoria del producto: ")
 
 

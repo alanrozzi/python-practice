@@ -24,14 +24,13 @@ def validarNumero(mensaje, tipo):
     codigoValido = 0
     while True:
         codigoValido = input(mensaje)
-        if codigoValido.isdigit() and (int(codigoValido) > 0 or float(codigoValido) > 0):
+        if codigoValido.isdigit() and int(codigoValido) > 0:
             
             if tipo == "int":
                 codigoValido = int(codigoValido)
-                break
             if tipo == "float":
                 codigoValido = float(codigoValido)
-                break
+        break
 
     return codigoValido
 
