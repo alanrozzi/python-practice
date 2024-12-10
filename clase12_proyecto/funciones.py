@@ -94,8 +94,6 @@ def actualizarProducto(inventario):
             inventario[key]["categoria"] = input("Ingrese la nueva categoria del producto: ")
 
 
-# debe pedir el código del producto a borrar, buscarlo en el diccionario, y si lo encuentra,
-# quitarlo de él. Si no lo encuentra, podemos notificar a la usuaria o usuario de esta situación.
 
 def eliminarProducto(inventario, inventarioEliminado):
     print(f"\nCantidad de productos disponibles: {len(inventario)}")
@@ -110,14 +108,11 @@ def eliminarProducto(inventario, inventarioEliminado):
 
 def buscarProducto(inventario):
     key = codigoProducto(inventario)
+    #if key in inventario:
     if key != -1:
         #Busco el producto
         mostrarProducto(inventario, key)
 
-
-# Para eso, podemos crear reporte_bajo_stock(), una función que se encargue de indicar que se ingrese un límite
-# de stock, y luego busque en el diccionario todos los productos cuya cantidad sea igual o inferior a ese límite.
-# Finalmente, debería mostrar todos esos productos en pantalla.
 
 def reportarBajoStock(inventario, bajoStock):
     
